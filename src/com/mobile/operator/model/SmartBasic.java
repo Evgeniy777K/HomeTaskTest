@@ -16,6 +16,7 @@ public class SmartBasic extends MobileTariff {
 
     @Override
     public String orderBonus() {
+        System.out.println("You get bonus 150 minutes");
         return toString();
     }
 }
