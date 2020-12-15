@@ -43,6 +43,7 @@ public class View {
 
         System.out.println("Number of clients = " + listClient.size());
         System.out.println("--------------------------------------");
+
         for (Bonus mobileTariff : listTariff) {
             System.out.println(mobileTariff.orderBonus());
             System.out.println("--------------------------------------");
