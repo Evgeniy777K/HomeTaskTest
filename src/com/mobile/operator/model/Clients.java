@@ -1,51 +1,24 @@
 package com.mobile.operator.model;
 
 public class Clients {
-    private String clientName;
-    private String clientPhoneNumber;
-    private TariffType tariffType;
+    private final String clientName;
+    private final String clientPhoneNumber;
+    private String tariffType;
 
-    public Clients(){
 
-    }
-
-    public Clients(String clientName, String clientPhoneNumber, TariffType tariffType) {
+    public Clients(String clientName, String clientPhoneNumber, String tariffType) {
         this.clientName = clientName;
         this.clientPhoneNumber = clientPhoneNumber;
-        this.tariffType = tariffType;
-    }
-
-    public String getClientName() {
-        return clientName;
-    }
-
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
-    }
-
-    public String getClientPhoneNumber() {
-        return clientPhoneNumber;
-    }
-
-    public void setClientPhoneNumber(String clientPhoneNumber) {
-        this.clientPhoneNumber = clientPhoneNumber;
-    }
-
-    public TariffType getTariffType() {
-        return tariffType;
-    }
-
-    public void setTariffType(TariffType tariffType) {
-        this.tariffType = tariffType;
+        this.tariffType=tariffType;
     }
 
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "Clients{" +
                 "clientName='" + clientName + '\'' +
                 ", clientPhoneNumber='" + clientPhoneNumber + '\'' +
-                ", tariffType=" + tariffType +
+                ", tariffType='" + tariffType + '\'' +
                 '}';
     }
 }

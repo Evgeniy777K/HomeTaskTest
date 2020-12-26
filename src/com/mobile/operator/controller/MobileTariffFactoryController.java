@@ -1,12 +1,27 @@
 package com.mobile.operator.controller;
 
-import com.mobile.operator.model.*;
+
+import com.mobile.operator.model.MobileTariff;
+import com.mobile.operator.model.Smart;
+import com.mobile.operator.model.SmartBasic;
+import com.mobile.operator.model.SmartPlus;
+import com.mobile.operator.model.SmartMax;
+import com.mobile.operator.model.SmartBusiness;
+import com.mobile.operator.model.SmartBusinessPlus;
+
+import static com.mobile.operator.model.TariffType.SMART;
+import static com.mobile.operator.model.TariffType.SMARTBASIC;
+import static com.mobile.operator.model.TariffType.SMARTPLUS;
+import static com.mobile.operator.model.TariffType.SMARTBUSINESS;
+import static com.mobile.operator.model.TariffType.SMARTBUSINESSPLUS;
+import static com.mobile.operator.model.TariffType.SMARTMAX;
+
 
 public class MobileTariffFactoryController {
-    //    Create ign my fabric method createTariff which takes in a variable -enum TariffType type
-    public MobileTariff createTariff(TariffType type) {
+    //    Create my fabric method createTariff which takes in a variable -enum TariffType type
+    public MobileTariff createTariff(String type) {
 
-        MobileTariff tariff = null;
+        MobileTariff tariff;
 // Write in body method block switch-case, in which I go through everything enum values and create the object class, corresponding to the enum value:
         switch (type) {
             case SMART:

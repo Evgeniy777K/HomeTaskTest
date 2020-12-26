@@ -14,12 +14,12 @@ public class View {
 
         MobileTariffFactoryController factory = new MobileTariffFactoryController();
 
-        Bonus smart = factory.createTariff(TariffType.SMART);
-        Bonus smartBasic = factory.createTariff(TariffType.SMARTBASIC);
-        Bonus smartMax = factory.createTariff(TariffType.SMARTMAX);
-        Bonus smartPlus = factory.createTariff(TariffType.SMARTPLUS);
-        Bonus smartBusiness = factory.createTariff(TariffType.SMARTBUSINESS);
-        Bonus smartBusinessPlus = factory.createTariff(TariffType.SMARTBUSINESSPLUS);
+        Bonus smart = factory.createTariff("Smart");
+        Bonus smartBasic = factory.createTariff("SmartBasic");
+        Bonus smartMax = factory.createTariff("SmartMax");
+        Bonus smartPlus = factory.createTariff("SmartPlus");
+        Bonus smartBusiness = factory.createTariff("SmartBusiness");
+        Bonus smartBusinessPlus = factory.createTariff("SmartBusinessPlus");
 
         List<Bonus> listTariff = new ArrayList<>();
         listTariff.add(smart);
@@ -29,19 +29,20 @@ public class View {
         listTariff.add(smartBusiness);
         listTariff.add(smartBusinessPlus);
 
-        Clients clients1 = new Clients("Petr", "80975864581", TariffType.SMARTBASIC);
-        Clients clients2 = new Clients("Olga", "80978754587", TariffType.SMARTBUSINESS);
-        Clients clients3 = new Clients("Vita", "80978974525", TariffType.SMARTMAX);
-        Clients clients4 = new Clients("Vitaliy", "80508974525", TariffType.SMART);
-        Clients clients5 = new Clients("Jack", "80968974533", TariffType.SMARTPLUS);
+        Clients clientDiscount = new Clients("Petr", "80975864581", "Smart");
+        Clients clientSecurity = new Clients("Olga", "80978754587", "SmartMax");
+        Clients clientEconomies = new Clients("Vita", "80978974525", "SmartBasic");
+        Clients clientAnalyst = new Clients("Vitaliy", "80508974525", "SmartPlus");
+        Clients clientPremium = new Clients("Jack", "80968974533", "SmartBusiness");
 
         List<Clients> listClients = new ArrayList<>();
-        listClients.add(clients1);
-        listClients.add(clients2);
-        listClients.add(clients3);
-        listClients.add(clients4);
-        listClients.add(clients5);
+        listClients.add(clientDiscount);
+        listClients.add(clientSecurity);
+        listClients.add(clientEconomies);
+        listClients.add(clientAnalyst);
+        listClients.add(clientPremium);
 
+        System.out.println("--------------------------------------");
         System.out.println("Number of clients = " + listClients.size());
         System.out.println("--------------------------------------");
 

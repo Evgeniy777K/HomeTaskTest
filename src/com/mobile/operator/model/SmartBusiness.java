@@ -1,7 +1,5 @@
 package com.mobile.operator.model;
 
-import com.mobile.operator.controller.MobileTariffFactoryController;
-
 public class SmartBusiness extends MobileTariff implements Bonus {
 
 
@@ -10,13 +8,13 @@ public class SmartBusiness extends MobileTariff implements Bonus {
     }
 
     @Override
-    protected MobileTariff createTariff(TariffType type) {
-        return new MobileTariffFactoryController().createTariff(type);
+    protected MobileTariff createTariff(String type) {
+        return SmartBusiness.this;
     }
 
     @Override
     public String orderBonus() {
-        System.out.println("You get bonus 200 minutes");
+        System.out.println("You get bonus 220 minutes");
         return toString();
     }
 }

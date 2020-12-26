@@ -1,7 +1,5 @@
 package com.mobile.operator.model;
 
-import com.mobile.operator.controller.MobileTariffFactoryController;
-
 public class SmartMax extends MobileTariff implements Bonus {
 
 
@@ -10,8 +8,8 @@ public class SmartMax extends MobileTariff implements Bonus {
     }
 
     @Override
-    protected MobileTariff createTariff(TariffType type) {
-        return new MobileTariffFactoryController().createTariff(type);
+    protected MobileTariff createTariff(String type) {
+        return SmartMax.this;
 
     }
 
