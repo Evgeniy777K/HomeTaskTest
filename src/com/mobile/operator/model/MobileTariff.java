@@ -1,7 +1,6 @@
 package com.mobile.operator.model;
 
 public abstract class MobileTariff implements Bonus {
-
     private int costPackage;
     private int limitMinuteInNet;
     private int limitMinuteInOtherNet;
@@ -20,6 +19,13 @@ public abstract class MobileTariff implements Bonus {
         this.limitMegabyte = limitMegabyte;
     }
 
+    public int getCostPackage() {
+        return costPackage;
+    }
+
+    public void setCostPackage(int costPackage) {
+        this.costPackage = costPackage;
+    }
 
     protected abstract MobileTariff createTariff(String type);
 

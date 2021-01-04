@@ -10,7 +10,6 @@ public class SmartMax extends MobileTariff implements Bonus {
     @Override
     protected MobileTariff createTariff(String type) {
         return SmartMax.this;
-
     }
 
     @Override
