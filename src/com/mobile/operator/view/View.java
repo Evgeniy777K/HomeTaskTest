@@ -2,20 +2,21 @@ package com.mobile.operator.view;
 
 
 import com.mobile.operator.controller.MobileTariffFactoryController;
-import com.mobile.operator.model.Bonus;
 import com.mobile.operator.model.Clients;
 import com.mobile.operator.model.CostTariffComparator;
 import com.mobile.operator.model.MobileTariff;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.List;
-import java.util.Set;
+import java.util.ArrayList;
 import java.util.TreeSet;
+import java.util.LinkedList;
+import java.util.Set;
 
 
 public class View {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         MobileTariffFactoryController factory = new MobileTariffFactoryController();
 
@@ -26,14 +27,16 @@ public class View {
         MobileTariff smartBusiness = factory.createTariff("SmartBusiness");
         MobileTariff smartBusinessPlus = factory.createTariff("SmartBusinessPlus");
 
-        List<Bonus> listTariff = new ArrayList<>();
-        listTariff.add(smartBasic);
-        listTariff.add(smart);
-        listTariff.add(smartPlus);
-        listTariff.add(smartMax);
-        listTariff.add(smartBusinessPlus);
-        listTariff.add(smartBusiness);
-
+        List<String> listTariff = new ArrayList<>();
+        System.out.println("Input tariff");
+        String input = scanner.next();
+        listTariff.add(smartBasic.toString());
+        listTariff.add(smart.toString());
+        listTariff.add(smartPlus.toString());
+        listTariff.add(smartMax.toString());
+        listTariff.add(smartBusinessPlus.toString());
+        listTariff.add(smartBusiness.toString());
+        listTariff.add(input);
 
         Clients clientDiscount = new Clients("Petr", "80975864581", "Smart");
         Clients clientSecurity = new Clients("Olga", "80978754587", "SmartMax");
@@ -41,21 +44,28 @@ public class View {
         Clients clientAnalyst = new Clients("Vitaliy", "80508974525", "SmartPlus");
         Clients clientPremium = new Clients("Jack", "80968974533", "SmartBusiness");
 
-        List<Clients> listClients = new LinkedList<>();
-        listClients.add(clientDiscount);
-        listClients.add(clientSecurity);
-        listClients.add(clientEconomies);
-        listClients.add(clientAnalyst);
-        listClients.add(clientPremium);
+        List<String> listClients = new LinkedList<>();
+        System.out.println("Input client name");
+        String inputs = scanner.next();
+        listClients.add(clientDiscount.toString());
+        listClients.add(clientSecurity.toString());
+        listClients.add(clientEconomies.toString());
+        listClients.add(clientAnalyst.toString());
+        listClients.add(clientPremium.toString());
+        listClients.add(inputs);
+
+
+        if (input.equals("Smart"))
+            System.out.println(smart);
+
+        if (inputs.equals("Petr"))
+            System.out.println(listClients.get(0));
+        else
+            System.out.println("This is not Petr");
 
         System.out.println("--------------------------------------");
-        System.out.println("Number of clients = " + listClients.size());
-        System.out.println("--------------------------------------");
 
-        for (Bonus mobileTariff : listTariff) {
-            System.out.println(mobileTariff.orderBonus());
-            System.out.println("--------------------------------------");
-        }
+
         CostTariffComparator comparator = new CostTariffComparator();
         Set<MobileTariff> tariffTypes = new TreeSet<>(comparator);
         tariffTypes.add(smart);
