@@ -1,14 +1,33 @@
 package com.mobile.operator.model;
 
-public final class TariffType {
 
-    public static final String SMART = "Smart";
-    public static final String SMARTBASIC = "SmartBasic";
-    public static final String SMARTMAX = "SmartMax";
-    public static final String SMARTPLUS = "SmartPlus";
-    public static final String SMARTBUSINESS = "SmartBusiness";
-    public static final String SMARTBUSINESSPLUS = "SmartBusinessPlus";
+public enum TariffType {
+    SMART("Smart"),
+    SMARTBASIC("SmartBasic"),
+    SMARTMAX("SmartMax"),
+    SMARTPLUS("SmartPlus"),
+    SMARTBUSINESS("SmartBusiness"),
+    SMARTBUSINESSPLUS("SmartBusinessPlus");
 
 
+    public String tariffName;
 
+
+    TariffType(String tariffName) {
+        this.tariffName = tariffName;
+    }
+
+
+    public String getTariffName() {
+        return tariffName;
+    }
+
+    public static TariffType findTariff(String type) throws Exception {
+        for (TariffType tariffType : TariffType.values()) {
+            if (tariffType.getTariffName().equals(type)) {
+                return tariffType;
+            }
+        }
+        throw new Exception();
+    }
 }

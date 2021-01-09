@@ -1,20 +1,11 @@
 package com.mobile.operator.model;
 
-public class SmartPlus extends MobileTariff implements Bonus {
+public class SmartPlus implements OrderTariff {
 
-    public SmartPlus(int costPackage, int limitMinuteInNet, int limitMinuteInOtherNet, int limitSms, int limitMegabyte) {
-        super(costPackage, limitMinuteInNet, limitMinuteInOtherNet, limitSms, limitMegabyte);
-    }
 
     @Override
-    protected MobileTariff createTariff(String type) {
-        return SmartPlus.this;
-
+    public MobileTariff orderTariff(int costPackage, int limitMinuteInNet, int limitSms, int limitMegabyte) {
+        return new MobileTariff(costPackage, limitMinuteInNet, limitSms, limitMegabyte);
     }
 
-    @Override
-    public String orderBonus() {
-        System.out.println("You get bonus 200 minutes");
-        return toString();
-    }
 }

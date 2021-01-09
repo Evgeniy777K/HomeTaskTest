@@ -3,10 +3,10 @@ package com.mobile.operator.model;
 public class Clients {
     private final String clientName;
     private final String clientPhoneNumber;
-    private final String tariffType;
+    private final TariffType tariffType;
 
 
-    public Clients(String clientName, String clientPhoneNumber, String tariffType) {
+    public Clients(String clientName, String clientPhoneNumber, TariffType tariffType) {
         this.clientName = clientName;
         this.clientPhoneNumber = clientPhoneNumber;
         this.tariffType=tariffType;
@@ -16,9 +16,7 @@ public class Clients {
         return clientName;
     }
 
-    public String getTariffType() {
-        return tariffType;
-    }
+
 
     @Override
     public String toString() {
