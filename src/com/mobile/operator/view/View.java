@@ -3,7 +3,7 @@ package com.mobile.operator.view;
 import com.mobile.operator.controller.MobileTariffController;
 import com.mobile.operator.model.Clients;
 import com.mobile.operator.model.MobileTariff;
-import com.mobile.operator.model.MyException;
+import com.mobile.operator.exception.MyException;
 import com.mobile.operator.model.TariffType;
 
 import java.io.BufferedReader;
@@ -13,7 +13,7 @@ import java.util.*;
 
 
 public class View {
-    public static void main(String[] args) throws MyException {
+    public static void main(String[] args) throws Exception {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         MobileTariff smart = null;
@@ -33,7 +33,7 @@ public class View {
             smartBusiness = MobileTariffController.orderTariff(600, 1000, 700, 1000, TariffType.findTariff(reader.readLine()));
             smartBusinessPlus = MobileTariffController.orderTariff(1200, 2000, 1000, 1500, TariffType.findTariff(reader.readLine()));
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             System.out.println("Input is not correct");
         }
 
@@ -44,6 +44,8 @@ public class View {
             tariffName = reader.readLine();
         } catch (IOException e) {
             System.out.println(e.getMessage());
+
+
         }
 
         List<MobileTariff> listTariff = new LinkedList<>();
@@ -88,12 +90,13 @@ public class View {
 
         for (MobileTariff tariff : listTariff) {
             for (Clients clients : listClients) {
-
-                if (tariff.getTariff().tariffName.equals(tariffName) && clients.getClientName().equals(nameClient)) {
-                    System.out.println(tariff + " " + clients);
-                    System.out.println("--------------------------------------");
-
-                }
+                TariffType type = tariff.getTariff();
+                String name = clients.getClientName();
+                if (tariffName != null)
+                    if (tariffName.equals(type.tariffName) && nameClient.equals(name)) {
+                        System.out.println(tariff + " " + clients);
+                        System.out.println("--------------------------------------");
+                    }
             }
         }
     }

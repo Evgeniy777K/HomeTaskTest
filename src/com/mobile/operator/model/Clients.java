@@ -9,13 +9,12 @@ public class Clients {
     public Clients(String clientName, String clientPhoneNumber, TariffType tariffType) {
         this.clientName = clientName;
         this.clientPhoneNumber = clientPhoneNumber;
-        this.tariffType=tariffType;
+        this.tariffType = tariffType;
     }
 
     public String getClientName() {
         return clientName;
     }
-
 
 
     @Override
