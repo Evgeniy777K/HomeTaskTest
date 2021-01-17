@@ -1,15 +1,19 @@
 package com.mobile.operator.view;
 
 import com.mobile.operator.controller.MobileTariffController;
-import com.mobile.operator.model.Clients;
 import com.mobile.operator.model.MobileTariff;
-import com.mobile.operator.exception.MyException;
+import com.mobile.operator.model.Clients;
 import com.mobile.operator.model.TariffType;
+import com.mobile.operator.exception.MyException;
+import com.mobile.operator.utils.InputOutputObjects;
+import com.mobile.operator.utils.PropWriteAndRead;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class View {
@@ -87,17 +91,21 @@ public class View {
         listClients.add(clientAnalyst);
         listClients.add(clientPremium);
 
-
         for (MobileTariff tariff : listTariff) {
             for (Clients clients : listClients) {
                 TariffType type = tariff.getTariff();
                 String name = clients.getClientName();
                 if (tariffName != null)
                     if (tariffName.equals(type.tariffName) && nameClient.equals(name)) {
-                        System.out.println(tariff + " " + clients);
-                        System.out.println("--------------------------------------");
+                        List<String> tariffFromClient = new ArrayList<>();
+                        tariffFromClient.add(tariff.toString());
+                        tariffFromClient.add(clients.toString());
+                        InputOutputObjects.writeToFile(tariffFromClient);
+                        InputOutputObjects.readFile();
                     }
             }
         }
+        PropWriteAndRead.setValueToProperties("app.properties", "Petr", "Smart");
+        PropWriteAndRead.getValueFromProperties("app.properties", "Petr");
     }
 }

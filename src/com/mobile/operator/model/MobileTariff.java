@@ -1,6 +1,6 @@
 package com.mobile.operator.model;
 
-public class MobileTariff {
+public class MobileTariff  {
     private int costPackage;
     private int limitMinuteInNet;
     private int limitSms;

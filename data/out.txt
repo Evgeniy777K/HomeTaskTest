@@ -1,0 +1,1 @@
+[MobileTariff{costPackage=100, limitMinuteInNet=90, limitSms=60, limitMegabyte=70}, Clients{clientName='Petr', clientPhoneNumber='80975864581', tariffType='SMART'}]
