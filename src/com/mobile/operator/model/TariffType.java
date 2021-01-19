@@ -1,8 +1,6 @@
 package com.mobile.operator.model;
 
 
-import java.io.IOException;
-
 public enum TariffType {
     SMART("Smart"),
     SMARTBASIC("SmartBasic"),
@@ -24,12 +22,12 @@ public enum TariffType {
         return tariffName;
     }
 
-    public static TariffType findTariff(String type) throws IOException {
-        for (TariffType tariffType : TariffType.values()) {
-            if (tariffType.getTariffName().equals(type)) {
-                return tariffType;
-            }
-        }
-        throw new IOException();
-    }
+//    public static TariffType findTariff(String type) throws IOException {
+//        for (TariffType tariffType : TariffType.values()) {
+//            if (tariffType.getTariffName().equals(type)) {
+//                return tariffType;
+//            }
+//        }
+//        throw new IOException();
+//    }
 }
